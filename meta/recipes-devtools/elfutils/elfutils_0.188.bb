@@ -4,7 +4,7 @@ DESCRIPTION = "elfutils is a collection of utilities and libraries to read, crea
 SECTION = "base"
 LICENSE = "GPLv2 & GPLv2+ & LGPLv3+ & GPLv3+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-                    file://debuginfod/debuginfod-client.c;endline=27;md5=f8e9d171c401c493ec45a0b2992ea2ed \
+                    file://debuginfod/debuginfod-client.c;endline=27;md5=7eb69ae4d5654e590c840538256a7bfe \
                     "
 DEPENDS = "zlib virtual/libintl"
 DEPENDS_append_libc-musl = " argp-standalone fts musl-obstack "
@@ -21,7 +21,6 @@ SRC_URI = "https://sourceware.org/elfutils/ftp/${PV}/${BP}.tar.bz2 \
            file://run-ptest \
            file://ptest.patch \
            file://0001-tests-Makefile.am-compile-test_nlist-with-standard-C.patch \
-           file://0001-add-support-for-ipkg-to-debuginfod.cxx.patch \
            "
 SRC_URI_append_libc-musl = " \
            file://0002-musl-libs.patch \
@@ -29,7 +28,7 @@ SRC_URI_append_libc-musl = " \
            file://0004-Fix-error-on-musl.patch \
            file://0015-config-eu.am-do-not-use-Werror.patch \
            "
-SRC_URI[sha256sum] = "c3637c208d309d58714a51e61e63f1958808fead882e9b607506a29e5474f2c5"
+SRC_URI[sha256sum] = "fb8b0e8d0802005b9a309c60c1d8de32dd2951b56f0c3a3cb56d21ce01595dff"
 
 inherit autotools gettext ptest pkgconfig
 
@@ -160,3 +159,4 @@ INHIBIT_PACKAGE_STRIP_FILES = "\
 "
 
 PRIVATE_LIBS_${PN}-ptest = "libdw.so.1 libelf.so.1 libasm.so.1"
+#           file://0001-add-support-for-ipkg-to-debuginfod.cxx.patch \
